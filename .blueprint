@@ -1,0 +1,8 @@
+created:
+    - database/factories/TaskFactory.php
+    - database/migrations/2020_10_15_173943_create_tasks_table.php
+    - app/Task.php
+models:
+    Status: { id: increments, name: string }
+    Project: { id: increments, name: string, description: 'longText nullable' }
+    Task: { id: bigIncrements, name: string, details: longText, relationships: { belongsTo: 'User, Team, Project, Status' } }
