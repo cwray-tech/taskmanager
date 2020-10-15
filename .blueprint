@@ -1,7 +1,12 @@
 created:
-    - database/factories/TaskFactory.php
-    - database/migrations/2020_10_15_173943_create_tasks_table.php
-    - app/Task.php
+    - app/Http/Controllers/ProjectController.php
+    - tests/Feature/Http/Controllers/ProjectControllerTest.php
+    - app/Http/Requests/ProjectStoreRequest.php
+    - app/Http/Requests/ProjectUpdateRequest.php
+    - app/Http/Resources/ProjectCollection.php
+    - app/Http/Resources/ProjectResource.php
+updated:
+    - routes/api.php
 models:
     Status: { id: increments, name: string }
     Project: { id: increments, name: string, description: 'longText nullable' }
