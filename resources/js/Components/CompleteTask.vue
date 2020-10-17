@@ -45,10 +45,21 @@ export default {
             })
             .catch((error)=>{
                 this.errored = true
+            }).finally(()=>{
+                this.loading =false
             })
         },
         incomplete(){
-
+            axios.delete('/tasks/' + this.task.id + '/complete')
+                .then(() => {
+                    this.isComplete = false
+                })
+                .catch((error)=>{
+                    this.errored = true
+                    this.isComplete = false
+                }).finally(()=>{
+                this.loading =false
+            })
         }
     }
 }

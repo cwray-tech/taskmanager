@@ -76,7 +76,8 @@ class TaskController extends Controller
     public function edit(Request $request, Task $task)
     {
         return Inertia::render('Tasks/Edit', [
-            'task' => $task->toArray()
+            'task' => $task->toArray(),
+            'users' => $request->user()->currentTeam->users->toArray()
         ]);
     }
 

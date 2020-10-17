@@ -1999,9 +1999,22 @@ __webpack_require__.r(__webpack_exports__);
         _this.isComplete = true;
       })["catch"](function (error) {
         _this.errored = true;
+      })["finally"](function () {
+        _this.loading = false;
       });
     },
-    incomplete: function incomplete() {}
+    incomplete: function incomplete() {
+      var _this2 = this;
+
+      axios["delete"]('/tasks/' + this.task.id + '/complete').then(function () {
+        _this2.isComplete = false;
+      })["catch"](function (error) {
+        _this2.errored = true;
+        _this2.isComplete = false;
+      })["finally"](function () {
+        _this2.loading = false;
+      });
+    }
   }
 });
 
@@ -4444,6 +4457,26 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Layouts/AppLayout */ "./resources/js/Layouts/AppLayout.vue");
+/* harmony import */ var _Jetstream_Button__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Jetstream/Button */ "./resources/js/Jetstream/Button.vue");
+/* harmony import */ var _Jetstream_Input__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Jetstream/Input */ "./resources/js/Jetstream/Input.vue");
+/* harmony import */ var _Jetstream_Label__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../Jetstream/Label */ "./resources/js/Jetstream/Label.vue");
+/* harmony import */ var _Jetstream_InputError__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../Jetstream/InputError */ "./resources/js/Jetstream/InputError.vue");
+/* harmony import */ var _Jetstream_ActionMessage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../Jetstream/ActionMessage */ "./resources/js/Jetstream/ActionMessage.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -4462,10 +4495,29 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
+
+
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['task'],
   components: {
-    AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"]
+    JetButton: _Jetstream_Button__WEBPACK_IMPORTED_MODULE_1__["default"],
+    AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"],
+    JetInput: _Jetstream_Input__WEBPACK_IMPORTED_MODULE_2__["default"],
+    JetLabel: _Jetstream_Label__WEBPACK_IMPORTED_MODULE_3__["default"],
+    JetInputError: _Jetstream_InputError__WEBPACK_IMPORTED_MODULE_4__["default"],
+    JetActionMessage: _Jetstream_ActionMessage__WEBPACK_IMPORTED_MODULE_5__["default"]
+  },
+  props: ['users', 'task'],
+  data: function data() {
+    return {
+      form: this.$inertia.form({
+        name: task.name,
+        details: task.details,
+        userId: task.user_id
+      })
+    };
   }
 });
 
@@ -28633,11 +28685,7 @@ var render = function() {
                   staticClass:
                     "font-semibold text-xl text-gray-800 leading-tight"
                 },
-                [
-                  _vm._v(
-                    "\n            Edit " + _vm._s(_vm.task.name) + "\n        "
-                  )
-                ]
+                [_vm._v("\n            Create a Task\n        ")]
               )
             ]
           },
@@ -28649,9 +28697,143 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "py-12" }, [
         _c("div", { staticClass: "max-w-7xl mx-auto sm:px-6 lg:px-8" }, [
-          _c("div", {
-            staticClass: "bg-white overflow-hidden shadow-xl sm:rounded-lg"
-          })
+          _c(
+            "div",
+            {
+              staticClass:
+                "bg-white overflow-hidden shadow-xl sm:rounded-lg p-6"
+            },
+            [
+              _c(
+                "form",
+                {
+                  on: {
+                    submit: function($event) {
+                      $event.preventDefault()
+                    }
+                  }
+                },
+                [
+                  _c("jet-label", {
+                    attrs: { for: "task_name", value: "Task Name" }
+                  }),
+                  _vm._v(" "),
+                  _c("jet-input", {
+                    ref: "task_name",
+                    staticClass: "mt-1 block w-full",
+                    attrs: { id: "task_name", type: "text" },
+                    model: {
+                      value: _vm.form.name,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "name", $$v)
+                      },
+                      expression: "form.name"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("jet-input-error", {
+                    staticClass: "mt-2",
+                    attrs: { message: _vm.form.error("name") }
+                  }),
+                  _vm._v(" "),
+                  _c("jet-label", {
+                    staticClass: "mt-4",
+                    attrs: { for: "user_id", value: "Assigned To" }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.userId,
+                          expression: "form.userId"
+                        }
+                      ],
+                      staticClass: "form-select w-full rounded-md shadow-sm",
+                      attrs: { id: "user_id", name: "user_id" },
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            _vm.form,
+                            "userId",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        }
+                      }
+                    },
+                    _vm._l(_vm.users, function(user) {
+                      return _c(
+                        "option",
+                        { key: user.id, domProps: { value: user.id } },
+                        [_vm._v(_vm._s(user.name))]
+                      )
+                    }),
+                    0
+                  ),
+                  _vm._v(" "),
+                  _c("jet-input-error", {
+                    staticClass: "mt-2",
+                    attrs: { message: _vm.form.error("user_id") }
+                  }),
+                  _vm._v(" "),
+                  _c("jet-label", {
+                    staticClass: "mt-4",
+                    attrs: { for: "details", value: "Additional Details" }
+                  }),
+                  _vm._v(" "),
+                  _c("textarea", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.details,
+                        expression: "form.details"
+                      }
+                    ],
+                    staticClass: "form-input mb-4 mt-1 p-4 block w-full",
+                    attrs: { name: "details" },
+                    domProps: { value: _vm.form.details },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "details", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("jet-input-error", {
+                    staticClass: "mt-2",
+                    attrs: { message: _vm.form.error("details") }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "jet-button",
+                    {
+                      class: { "opacity-25": _vm.form.processing },
+                      attrs: { type: "submit", disabled: _vm.form.processing }
+                    },
+                    [_vm._v("Add Task")]
+                  )
+                ],
+                1
+              )
+            ]
+          )
         ])
       ])
     ]
