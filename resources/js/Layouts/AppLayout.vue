@@ -17,6 +17,12 @@
                             <jet-nav-link :href="route('dashboard')" :active="$page.currentRouteName == 'dashboard'">
                                 Dashboard
                             </jet-nav-link>
+                            <jet-nav-link :href="route('projects.index')" :active="$page.currentRouteName == 'projects.index'">
+                                Projects
+                            </jet-nav-link>
+                            <jet-nav-link :href="route('tasks.index')" :active="$page.currentRouteName == 'tasks.index'">
+                                Tasks
+                            </jet-nav-link>
                         </div>
                     </div>
 
@@ -219,6 +225,11 @@
     import JetResponsiveNavLink from './../Jetstream/ResponsiveNavLink'
 
     export default {
+        metaInfo() {
+            return {
+                title: `Task Manager`,
+            }
+        },
         components: {
             JetApplicationLogo,
             JetApplicationMark,

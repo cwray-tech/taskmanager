@@ -4,20 +4,23 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\TaskStoreRequest;
 use App\Http\Requests\TaskUpdateRequest;
-use App\Task;
+use App\Http\Resources\TaskCollection;
+use App\Models\Task;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class TaskController extends Controller
 {
     /**
      * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @return \Inertia\Response
      */
     public function index(Request $request)
     {
-        $tasks = Task::all();
-
-        return view('task.index', compact('tasks'));
+        $tasks = $request->user()->tasks();
+        return Inertia::render('Tasks/Index', [
+            'tasks' =>  new TaskCollection($tasks)
+        ]);
     }
 
     /**
@@ -44,7 +47,7 @@ class TaskController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Task $task
+     * @param \App\Models\Task $task
      * @return \Illuminate\Http\Response
      */
     public function show(Request $request, Task $task)
@@ -54,7 +57,7 @@ class TaskController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Task $task
+     * @param \App\Models\Task $task
      * @return \Illuminate\Http\Response
      */
     public function edit(Request $request, Task $task)
@@ -64,7 +67,7 @@ class TaskController extends Controller
 
     /**
      * @param \App\Http\Requests\TaskUpdateRequest $request
-     * @param \App\Task $task
+     * @param \App\Models\Task $task
      * @return \Illuminate\Http\Response
      */
     public function update(TaskUpdateRequest $request, Task $task)
@@ -78,7 +81,7 @@ class TaskController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Task $task
+     * @param \App\Models\Task $task
      * @return \Illuminate\Http\Response
      */
     public function destroy(Request $request, Task $task)

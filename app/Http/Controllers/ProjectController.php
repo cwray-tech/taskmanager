@@ -4,20 +4,24 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ProjectStoreRequest;
 use App\Http\Requests\ProjectUpdateRequest;
-use App\Project;
+use App\Http\Resources\ProjectCollection;
+use App\Http\Resources\TaskCollection;
+use App\Models\Project;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class ProjectController extends Controller
 {
     /**
      * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @return \Inertia\Response
      */
     public function index(Request $request)
     {
-        $projects = Project::all();
-
-        return view('project.index', compact('projects'));
+        $projects = $request->user()->currentTeam->projects();
+        return Inertia::render('Projects/Index', [
+            'projects' =>  new ProjectCollection($projects)
+        ]);
     }
 
     /**
@@ -44,7 +48,7 @@ class ProjectController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Project $project
+     * @param \App\Models\Project $project
      * @return \Illuminate\Http\Response
      */
     public function show(Request $request, Project $project)
@@ -54,7 +58,7 @@ class ProjectController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Project $project
+     * @param \App\Models\Project $project
      * @return \Illuminate\Http\Response
      */
     public function edit(Request $request, Project $project)
@@ -64,7 +68,7 @@ class ProjectController extends Controller
 
     /**
      * @param \App\Http\Requests\ProjectUpdateRequest $request
-     * @param \App\Project $project
+     * @param \App\Models\Project $project
      * @return \Illuminate\Http\Response
      */
     public function update(ProjectUpdateRequest $request, Project $project)
@@ -78,7 +82,7 @@ class ProjectController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Project $project
+     * @param \App\Models\Project $project
      * @return \Illuminate\Http\Response
      */
     public function destroy(Request $request, Project $project)

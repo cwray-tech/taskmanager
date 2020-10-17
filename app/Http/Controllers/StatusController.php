@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StatusStoreRequest;
 use App\Http\Requests\StatusUpdateRequest;
-use App\Status;
+use App\Models\Status;
 use Illuminate\Http\Request;
 
 class StatusController extends Controller
@@ -44,7 +44,7 @@ class StatusController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Status $status
+     * @param \App\Models\Status $status
      * @return \Illuminate\Http\Response
      */
     public function show(Request $request, Status $status)
@@ -54,7 +54,7 @@ class StatusController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Status $status
+     * @param \App\Models\Status $status
      * @return \Illuminate\Http\Response
      */
     public function edit(Request $request, Status $status)
@@ -64,7 +64,7 @@ class StatusController extends Controller
 
     /**
      * @param \App\Http\Requests\StatusUpdateRequest $request
-     * @param \App\Status $status
+     * @param \App\Models\Status $status
      * @return \Illuminate\Http\Response
      */
     public function update(StatusUpdateRequest $request, Status $status)
@@ -78,7 +78,7 @@ class StatusController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Status $status
+     * @param \App\Models\Status $status
      * @return \Illuminate\Http\Response
      */
     public function destroy(Request $request, Status $status)

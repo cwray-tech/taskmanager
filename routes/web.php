@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\StatusController;
+use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,9 +26,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
-    Route::resource('task', 'TaskController');
+    Route::resource('tasks', TaskController::class);
 
-    Route::resource('status', 'StatusController');
+    Route::resource('status', StatusController::class);
 
-    Route::resource('project', 'ProjectController');
+    Route::resource('projects', ProjectController::class);
+
 });
