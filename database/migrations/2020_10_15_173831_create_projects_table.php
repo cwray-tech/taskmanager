@@ -18,7 +18,7 @@ class CreateProjectsTable extends Migration
             $table->foreignId('team_id')->constrained();
             $table->string('name');
             $table->longText('description')->nullable();
-
+            $table->date('completed_at')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
