@@ -7,10 +7,15 @@ use Illuminate\Http\Request;
 class CompleteTaskController extends Controller
 {
     public function store(Task $task) {
-        $task->complete();
+        $task->update([
+            'completed_at' => now()
+        ]);
+        return response('Success', 200);
     }
 
     public function destroy(Task $task) {
-        $task->incomplete();
+        $task->update([
+            'completed_at' => null
+        ]);
     }
 }

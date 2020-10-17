@@ -19,7 +19,7 @@
 import AppLayout from '../../Layouts/AppLayout'
 import TaskList from '../../Components/TasksList'
 export default {
-    props:{tasks: Object},
+    props:['tasks'],
     components: {
         AppLayout,
         TaskList

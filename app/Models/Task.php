@@ -2,15 +2,14 @@
 
 namespace App\Models;
 
-use App\Traits\Completes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Task extends Model
 {
-    use HasFactory, SoftDeletes, Completes;
-
+    use HasFactory, SoftDeletes;
+    protected $with = ['user'];
     /**
      * The attributes that are mass assignable.
      *
@@ -19,6 +18,9 @@ class Task extends Model
     protected $fillable = [
         'name',
         'details',
+        'user_id',
+        'project_id',
+        'completed_at'
     ];
 
     public function user()

@@ -11,10 +11,13 @@
                         <thead>
                         <tr>
                             <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                                Name
+                                Completed?
                             </th>
                             <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                                Status
+                                Task Name
+                            </th>
+                            <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                Assigned To
                             </th>
                             <th class="px-6 py-3 bg-gray-50"></th>
                         </tr>
@@ -22,13 +25,18 @@
                         <tbody>
                         <tr v-for="task in tasks" :key="task.id" class="bg-white">
                             <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900">
-                                {{  task.name }}
+                                <CompleteTask :task="task"/>
+                            </td>
+                            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900">
+                                {{ task.name }}
                             </td>
                             <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
-                                {{ task.status }}
+                                {{ task.user.name }}
                             </td>
                             <td class="px-6 py-4 whitespace-no-wrap text-right text-sm leading-5 font-medium">
-                                <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                <CardLink :href="route('tasks.edit', task.id)"
+                                          class="text-indigo-600 hover:text-indigo-900">Edit
+                                </CardLink>
                             </td>
                         </tr>
                         </tbody>
@@ -40,7 +48,11 @@
     </div>
 </template>
 <script>
+import CardLink from "./CardLink";
+import CompleteTask from "./CompleteTask";
+
 export default {
+    components: {CompleteTask, CardLink},
     props: [
         'tasks'
     ]

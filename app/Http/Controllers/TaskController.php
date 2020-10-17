@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\TaskCollection;
-use App\Http\Resources\TaskResource;
 use App\Models\Task;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -32,7 +30,9 @@ class TaskController extends Controller
      */
     public function create(Request $request)
     {
-        return Inertia::render('Tasks/Create');
+        return Inertia::render('Tasks/Create', [
+            'users' => $request->user()->currentTeam->allUsers()->toArray()
+        ]);
     }
 
     /**
@@ -43,13 +43,14 @@ class TaskController extends Controller
     {
         $request->validate([
             'name' => ['required', 'min:3'],
-            'details' => ['nullable']
+            'details' => ['nullable'],
+            'userId' => ['required', 'exists:users,id']
         ]);
         Auth::user()->currentTeam->tasks()->create(
             [
                 'name' => $request->name,
                 'details' => $request->details,
-                'team_id' => $request->user()->currentTeam->id
+                'user_id' => $request->userId
             ]);
 
         return Redirect::route('tasks.index');
@@ -63,7 +64,7 @@ class TaskController extends Controller
     public function show(Request $request, Task $task)
     {
         return Inertia::render('Tasks/Show', [
-            'task' => new TaskResource($task)
+            'task' => $task->toArray()
         ]);
     }
 
@@ -75,7 +76,7 @@ class TaskController extends Controller
     public function edit(Request $request, Task $task)
     {
         return Inertia::render('Tasks/Edit', [
-            'task' => new TaskResource($task)
+            'task' => $task->toArray()
         ]);
     }
 
