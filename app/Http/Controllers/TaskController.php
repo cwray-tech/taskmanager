@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Requests\TaskStoreRequest;
 use App\Http\Requests\TaskUpdateRequest;
 use App\Http\Resources\TaskCollection;
+use App\Http\Resources\TaskResource;
 use App\Models\Task;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rules\In;
 use Inertia\Inertia;
 
 class TaskController extends Controller
@@ -34,7 +36,7 @@ class TaskController extends Controller
 
     /**
      * @param \App\Http\Requests\TaskStoreRequest $request
-     * @return \Illuminate\Http\Response
+     * @return TaskResource
      */
     public function store(TaskStoreRequest $request)
     {
@@ -42,33 +44,37 @@ class TaskController extends Controller
 
         $request->session()->flash('task.id', $task->id);
 
-        return redirect()->route('task.index');
+        return new TaskResource($task);
     }
 
     /**
      * @param \Illuminate\Http\Request $request
      * @param \App\Models\Task $task
-     * @return \Illuminate\Http\Response
+     * @return \Inertia\Response
      */
     public function show(Request $request, Task $task)
     {
-        return view('task.show', compact('task'));
+        return Inertia::render('Tasks/Show', [
+            'task' => new TaskResource($task)
+        ]);
     }
 
     /**
      * @param \Illuminate\Http\Request $request
      * @param \App\Models\Task $task
-     * @return \Illuminate\Http\Response
+     * @return \Inertia\Response
      */
     public function edit(Request $request, Task $task)
     {
-        return view('task.edit', compact('task'));
+        return Inertia::render('Tasks/Edit', [
+            'task' => new TaskResource($task)
+        ]);
     }
 
     /**
      * @param \App\Http\Requests\TaskUpdateRequest $request
      * @param \App\Models\Task $task
-     * @return \Illuminate\Http\Response
+     * @return TaskResource
      */
     public function update(TaskUpdateRequest $request, Task $task)
     {
@@ -76,13 +82,13 @@ class TaskController extends Controller
 
         $request->session()->flash('task.id', $task->id);
 
-        return redirect()->route('task.index');
+        return new TaskResource($task);
     }
 
     /**
      * @param \Illuminate\Http\Request $request
      * @param \App\Models\Task $task
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Request $request, Task $task)
     {

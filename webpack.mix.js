@@ -1,5 +1,5 @@
 const mix = require('laravel-mix');
-
+mix.browserSync('taskmanager.test');
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management

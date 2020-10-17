@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ProjectStoreRequest;
 use App\Http\Requests\ProjectUpdateRequest;
 use App\Http\Resources\ProjectCollection;
-use App\Http\Resources\TaskCollection;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
