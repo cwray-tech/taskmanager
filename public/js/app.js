@@ -24204,7 +24204,7 @@ var render = function() {
             "span",
             {
               staticClass:
-                "opacity-100 ease-in duration-200 absolute inset-0 h-full w-full flex items-center justify-center transition-opacity",
+                "ease-in duration-200 absolute inset-0 h-full w-full flex items-center justify-center transition-opacity",
               class: _vm.isComplete
                 ? "opacity-0 ease-out duration-100"
                 : "opacity-100 ease-in duration-200"
@@ -24235,7 +24235,10 @@ var render = function() {
             "span",
             {
               staticClass:
-                "opacity-0 ease-out duration-100 absolute inset-0 h-full w-full flex items-center justify-center transition-opacity"
+                "ease-out duration-100 absolute inset-0 h-full w-full flex items-center justify-center transition-opacity",
+              class: _vm.isComplete
+                ? "opacity-100 ease-in duration-200"
+                : "opacity-0 ease-out duration-100"
             },
             [
               _c(
