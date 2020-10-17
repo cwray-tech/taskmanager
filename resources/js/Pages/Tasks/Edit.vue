@@ -9,13 +9,14 @@
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-6">
-                    <form @submit.prevent="editTask">
+                    <form @submit.prevent="edit">
                         <jet-label for="task_name" value="Task Name" />
                         <jet-input id="task_name" type="text" class="mt-1 block w-full" v-model="form.name" ref="task_name" />
                         <jet-input-error :message="form.error('name')" class="mt-2" />
 
                         <jet-label for="user_id" class="mt-4" value="Assigned To" />
                         <select id="user_id" name="user_id" v-model="form.user_id" class="form-select w-full rounded-md shadow-sm">
+                            <option value="">Not Assigned</option>
                             <option v-for="user in users" :key="user.id" :value="user.id">{{ user.name }}</option>
                         </select>
                         <jet-input-error :message="form.error('user_id')" class="mt-2" />
@@ -23,7 +24,10 @@
                         <jet-label for="details" value="Additional Details" class="mt-4"/>
                         <textarea name="details"  class="form-input mb-4 mt-1 p-4 block w-full" v-model="form.details"></textarea>
                         <jet-input-error :message="form.error('details')" class="mt-2" />
-                        <jet-button type="submit" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">Save Changes</jet-button>
+                        <div class="flex justify-between">
+                            <jet-button type="submit" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">Save Changes</jet-button>
+                            <DeleteTask :task="task" />
+                        </div>
                     </form>
                 </div>
             </div>
@@ -37,14 +41,18 @@ import JetInput from "../../Jetstream/Input";
 import JetLabel from "../../Jetstream/Label";
 import JetInputError from "../../Jetstream/InputError";
 import JetActionMessage from "../../Jetstream/ActionMessage";
+import JetDangerButton from "../../Jetstream/DangerButton";
+import DeleteTask from "../../Components/DeleteTask";
 export default {
     components: {
+        DeleteTask,
         JetButton,
         AppLayout,
         JetInput,
         JetLabel,
         JetInputError,
-        JetActionMessage
+        JetActionMessage,
+        JetDangerButton
     },
     props: ['users', 'task'],
     data() {
@@ -58,11 +66,11 @@ export default {
         }
     },
     methods: {
-        editTask(){
+        edit(){
             this.form.post(route('tasks.update', this.task.id), {
                 preserveScroll: true
             })
-        },
+        }
     }
 }
 </script>

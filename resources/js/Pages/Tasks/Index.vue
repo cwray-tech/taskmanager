@@ -2,7 +2,7 @@
     <app-layout>
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Tasks
+                {{ user.current_team.name }} Tasks
             </h2>
         </template>
 
@@ -19,7 +19,7 @@
 import AppLayout from '../../Layouts/AppLayout'
 import TaskList from '../../Components/TasksList'
 export default {
-    props:['tasks'],
+    props:['tasks', 'user'],
     components: {
         AppLayout,
         TaskList

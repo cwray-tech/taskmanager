@@ -17,7 +17,7 @@ class TaskController extends Controller
      */
     public function index(Request $request)
     {
-        $tasks = $request->user()->tasks;
+        $tasks = $request->user()->currentTeam->tasks;
 
         return Inertia::render('Tasks/Index', [
             'tasks' =>  $tasks->toArray()
@@ -44,7 +44,7 @@ class TaskController extends Controller
         $validated = $request->validate([
             'name' => ['required', 'min:3'],
             'details' => ['nullable'],
-            'user_id' => ['required', 'exists:users,id']
+            'user_id' => ['nullable', 'exists:users,id']
         ]);
         Auth::user()->currentTeam->tasks()->create($validated);
 
@@ -86,7 +86,7 @@ class TaskController extends Controller
         $validated = $request->validate([
             'name' => ['required', 'min:3'],
             'details' => ['nullable'],
-            'user_id' => ['required', 'exists:users,id']
+            'user_id' => ['nullable', 'exists:users,id']
         ]);
         $task->update($validated);
 
@@ -102,6 +102,6 @@ class TaskController extends Controller
     {
         $task->delete();
 
-        return redirect()->route('task.index');
+        return Redirect::route('tasks.index');
     }
 }
