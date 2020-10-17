@@ -28,8 +28,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     Route::resource('tasks', TaskController::class);
 
-    Route::resource('status', StatusController::class);
-
     Route::resource('projects', ProjectController::class);
 
 });
