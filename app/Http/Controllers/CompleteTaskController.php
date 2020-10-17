@@ -10,7 +10,7 @@ class CompleteTaskController extends Controller
         $task->complete();
     }
 
-    public function delete(Task $task){
+    public function destroy(Task $task) {
         $task->incomplete();
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CompleteTaskController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\StatusController;
 use App\Http\Controllers\TaskController;
@@ -30,4 +31,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     Route::resource('projects', ProjectController::class);
 
+    Route::post('/tasks/{task}/complete', [CompleteTaskController::class, 'store']);
+    Route::delete('/tasks/{task}/complete', [CompleteTaskController::class, 'destroy']);
 });
