@@ -29,8 +29,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     Route::resource('tasks', TaskController::class);
 
-    Route::resource('projects', ProjectController::class);
-
     Route::post('/tasks/{task}/complete', [CompleteTaskController::class, 'store']);
     Route::delete('/tasks/{task}/complete', [CompleteTaskController::class, 'destroy']);
 });

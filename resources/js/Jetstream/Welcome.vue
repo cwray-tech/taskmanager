@@ -14,24 +14,6 @@
             </div>
         </div>
         <div class="bg-gray-200 p-6 bg-opacity-25 grid gap-6 grid-cols-1 md:grid-cols-2">
-
-            <div>
-                <InertiaLink :href="route('projects.index')">
-                    <h3 class="text-lg leading-6 font-medium text-gray-900">
-                        Projects
-                    </h3>
-                    <div class="mt-2 max-w-xl text-sm leading-5 text-gray-500">
-                        <p>
-                            View your teams projects and tasks you need to accomplish.
-                        </p>
-                    </div>
-                </InertiaLink>
-                <div class="mt-3 text-sm leading-5">
-                    <CardLink :href="route('projects.index')">
-                        View Projects
-                    </CardLink>
-                </div>
-            </div>
             <div>
                 <InertiaLink :href="route('tasks.index')">
                     <h3 class="text-lg leading-6 font-medium text-gray-900">

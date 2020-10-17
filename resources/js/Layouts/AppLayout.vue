@@ -17,11 +17,11 @@
                             <jet-nav-link :href="route('dashboard')" :active="$page.currentRouteName == 'dashboard'">
                                 Dashboard
                             </jet-nav-link>
-                            <jet-nav-link :href="route('projects.index')" :active="$page.currentRouteName == 'projects.index'">
-                                Projects
-                            </jet-nav-link>
                             <jet-nav-link :href="route('tasks.index')" :active="$page.currentRouteName == 'tasks.index'">
                                 Tasks
+                            </jet-nav-link>
+                            <jet-nav-link :href="route('tasks.create')" :active="$page.currentRouteName == 'tasks.create'">
+                                New Task
                             </jet-nav-link>
                         </div>
                     </div>

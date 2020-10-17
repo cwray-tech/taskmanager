@@ -24,7 +24,7 @@ class TaskFactory extends Factory
     {
         return [
             'name' => $this->faker->name,
-            'details' => $this->faker->text,
+            'details' => $this->faker->text
         ];
     }
 }

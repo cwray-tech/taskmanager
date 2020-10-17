@@ -2,31 +2,32 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\TaskStoreRequest;
-use App\Http\Requests\TaskUpdateRequest;
 use App\Http\Resources\TaskCollection;
 use App\Http\Resources\TaskResource;
 use App\Models\Task;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Validation\Rules\In;
 use Inertia\Inertia;
 
 class TaskController extends Controller
 {
     /**
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      * @return \Inertia\Response
      */
     public function index(Request $request)
     {
-        $tasks = $request->user()->tasks();
+        $tasks = $request->user()->tasks;
+
         return Inertia::render('Tasks/Index', [
-            'tasks' =>  new TaskCollection($tasks)
+            'tasks' =>  $tasks->toArray()
         ]);
     }
 
     /**
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      * @return \Inertia\Response
      */
     public function create(Request $request)
@@ -35,20 +36,27 @@ class TaskController extends Controller
     }
 
     /**
-     * @param \App\Http\Requests\TaskStoreRequest $request
-     * @return TaskResource
+     * @param $request
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(TaskStoreRequest $request)
+    public function store(Request $request)
     {
-        $task = Task::create($request->validated());
+        $request->validate([
+            'name' => ['required', 'min:3'],
+            'details' => ['nullable']
+        ]);
+        Auth::user()->currentTeam->tasks()->create(
+            [
+                'name' => $request->name,
+                'details' => $request->details,
+                'team_id' => $request->user()->currentTeam->id
+            ]);
 
-        $request->session()->flash('task.id', $task->id);
-
-        return new TaskResource($task);
+        return Redirect::route('tasks.index');
     }
 
     /**
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      * @param \App\Models\Task $task
      * @return \Inertia\Response
      */
@@ -60,8 +68,8 @@ class TaskController extends Controller
     }
 
     /**
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Task $task
+     * @param Request $request
+     * @param Task $task
      * @return \Inertia\Response
      */
     public function edit(Request $request, Task $task)
@@ -72,11 +80,11 @@ class TaskController extends Controller
     }
 
     /**
-     * @param \App\Http\Requests\TaskUpdateRequest $request
-     * @param \App\Models\Task $task
+     * @param Request $request
+     * @param Task $task
      * @return TaskResource
      */
-    public function update(TaskUpdateRequest $request, Task $task)
+    public function update(Request $request, Task $task)
     {
         $task->update($request->validated());
 
@@ -86,8 +94,8 @@ class TaskController extends Controller
     }
 
     /**
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Task $task
+     * @param Request $request
+     * @param Task $task
      * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Request $request, Task $task)
