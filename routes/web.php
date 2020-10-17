@@ -22,17 +22,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 
-Route::apiResource('task', 'TaskController');
-
-Route::apiResource('status', 'StatusController');
-
-Route::apiResource('project', 'ProjectController');
-
-
-Route::resource('project', 'ProjectController');
-
-
 Route::resource('task', 'TaskController');
 
-
 Route::resource('status', 'StatusController');
+
+Route::resource('project', 'ProjectController');
