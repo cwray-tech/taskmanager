@@ -43,10 +43,11 @@ export default {
                 .then(() => {
                 this.isComplete = true
             })
-            .catch((error)=>{
+            .catch((error) => {
                 this.errored = true
+                this.isComplete = false
             }).finally(()=>{
-                this.loading =false
+                this.loading = false
             })
         },
         incomplete(){
@@ -54,11 +55,11 @@ export default {
                 .then(() => {
                     this.isComplete = false
                 })
-                .catch((error)=>{
+                .catch((error) => {
                     this.errored = true
-                    this.isComplete = false
+                    this.isComplete = true
                 }).finally(()=>{
-                this.loading =false
+                this.loading = false
             })
         }
     }

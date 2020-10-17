@@ -1999,6 +1999,7 @@ __webpack_require__.r(__webpack_exports__);
         _this.isComplete = true;
       })["catch"](function (error) {
         _this.errored = true;
+        _this.isComplete = false;
       })["finally"](function () {
         _this.loading = false;
       });
@@ -2010,7 +2011,7 @@ __webpack_require__.r(__webpack_exports__);
         _this2.isComplete = false;
       })["catch"](function (error) {
         _this2.errored = true;
-        _this2.isComplete = false;
+        _this2.isComplete = true;
       })["finally"](function () {
         _this2.loading = false;
       });
