@@ -21,9 +21,11 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia\Inertia::render('Dashboard');
 })->name('dashboard');
 
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
-Route::resource('task', 'TaskController');
+    Route::resource('task', 'TaskController');
 
-Route::resource('status', 'StatusController');
+    Route::resource('status', 'StatusController');
 
-Route::resource('project', 'ProjectController');
+    Route::resource('project', 'ProjectController');
+});
