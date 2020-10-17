@@ -20,3 +20,19 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia\Inertia::render('Dashboard');
 })->name('dashboard');
+
+
+Route::apiResource('task', 'TaskController');
+
+Route::apiResource('status', 'StatusController');
+
+Route::apiResource('project', 'ProjectController');
+
+
+Route::resource('project', 'ProjectController');
+
+
+Route::resource('task', 'TaskController');
+
+
+Route::resource('status', 'StatusController');

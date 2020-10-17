@@ -18,14 +18,27 @@ class TaskControllerTest extends TestCase
     /**
      * @test
      */
-    public function index_behaves_as_expected()
+    public function index_displays_view()
     {
         $tasks = Task::factory()->count(3)->create();
 
         $response = $this->get(route('task.index'));
 
         $response->assertOk();
-        $response->assertJsonStructure([]);
+        $response->assertViewIs('task.index');
+        $response->assertViewHas('tasks');
+    }
+
+
+    /**
+     * @test
+     */
+    public function create_displays_view()
+    {
+        $response = $this->get(route('task.create'));
+
+        $response->assertOk();
+        $response->assertViewIs('task.create');
     }
 
 
@@ -44,7 +57,7 @@ class TaskControllerTest extends TestCase
     /**
      * @test
      */
-    public function store_saves()
+    public function store_saves_and_redirects()
     {
         $name = $this->faker->name;
         $details = $this->faker->text;
@@ -61,22 +74,38 @@ class TaskControllerTest extends TestCase
         $this->assertCount(1, $tasks);
         $task = $tasks->first();
 
-        $response->assertCreated();
-        $response->assertJsonStructure([]);
+        $response->assertRedirect(route('task.index'));
+        $response->assertSessionHas('task.id', $task->id);
     }
 
 
     /**
      * @test
      */
-    public function show_behaves_as_expected()
+    public function show_displays_view()
     {
         $task = Task::factory()->create();
 
         $response = $this->get(route('task.show', $task));
 
         $response->assertOk();
-        $response->assertJsonStructure([]);
+        $response->assertViewIs('task.show');
+        $response->assertViewHas('task');
+    }
+
+
+    /**
+     * @test
+     */
+    public function edit_displays_view()
+    {
+        $task = Task::factory()->create();
+
+        $response = $this->get(route('task.edit', $task));
+
+        $response->assertOk();
+        $response->assertViewIs('task.edit');
+        $response->assertViewHas('task');
     }
 
 
@@ -95,7 +124,7 @@ class TaskControllerTest extends TestCase
     /**
      * @test
      */
-    public function update_behaves_as_expected()
+    public function update_redirects()
     {
         $task = Task::factory()->create();
         $name = $this->faker->name;
@@ -108,8 +137,8 @@ class TaskControllerTest extends TestCase
 
         $task->refresh();
 
-        $response->assertOk();
-        $response->assertJsonStructure([]);
+        $response->assertRedirect(route('task.index'));
+        $response->assertSessionHas('task.id', $task->id);
 
         $this->assertEquals($name, $task->name);
         $this->assertEquals($details, $task->details);
@@ -119,13 +148,13 @@ class TaskControllerTest extends TestCase
     /**
      * @test
      */
-    public function destroy_deletes_and_responds_with()
+    public function destroy_deletes_and_redirects()
     {
         $task = Task::factory()->create();
 
         $response = $this->delete(route('task.destroy', $task));
 
-        $response->assertNoContent();
+        $response->assertRedirect(route('task.index'));
 
         $this->assertDeleted($task);
     }

@@ -1,12 +1,12 @@
 created:
-    - app/Http/Controllers/ProjectController.php
-    - tests/Feature/Http/Controllers/ProjectControllerTest.php
-    - app/Http/Requests/ProjectStoreRequest.php
-    - app/Http/Requests/ProjectUpdateRequest.php
-    - app/Http/Resources/ProjectCollection.php
-    - app/Http/Resources/ProjectResource.php
+    - app/Http/Controllers/StatusController.php
+    - tests/Feature/Http/Controllers/StatusControllerTest.php
+    - resources/views/status/index.blade.php
+    - resources/views/status/create.blade.php
+    - resources/views/status/show.blade.php
+    - resources/views/status/edit.blade.php
 updated:
-    - routes/api.php
+    - routes/web.php
 models:
     Status: { id: increments, name: string }
     Project: { id: increments, name: string, description: 'longText nullable' }
