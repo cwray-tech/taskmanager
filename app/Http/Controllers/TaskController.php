@@ -25,11 +25,11 @@ class TaskController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @return \Inertia\Response
      */
     public function create(Request $request)
     {
-        return view('task.create');
+        return Inertia::render('Tasks/Create');
     }
 
     /**
