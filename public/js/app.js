@@ -4432,7 +4432,7 @@ __webpack_require__.r(__webpack_exports__);
       form: this.$inertia.form({
         name: '',
         details: '',
-        userId: null
+        user_id: null
       })
     };
   },
@@ -4513,11 +4513,19 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       form: this.$inertia.form({
-        name: task.name,
-        details: task.details,
-        userId: task.user_id
+        name: this.task.name,
+        details: this.task.details,
+        user_id: this.task.user_id,
+        _method: 'PATCH'
       })
     };
+  },
+  methods: {
+    editTask: function editTask() {
+      this.form.post(route('tasks.update', this.task.id), {
+        preserveScroll: true
+      });
+    }
   }
 });
 
@@ -28558,8 +28566,8 @@ var render = function() {
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.form.userId,
-                          expression: "form.userId"
+                          value: _vm.form.user_id,
+                          expression: "form.user_id"
                         }
                       ],
                       staticClass: "form-select w-full rounded-md shadow-sm",
@@ -28576,7 +28584,7 @@ var render = function() {
                             })
                           _vm.$set(
                             _vm.form,
-                            "userId",
+                            "user_id",
                             $event.target.multiple
                               ? $$selectedVal
                               : $$selectedVal[0]
@@ -28685,7 +28693,11 @@ var render = function() {
                   staticClass:
                     "font-semibold text-xl text-gray-800 leading-tight"
                 },
-                [_vm._v("\n            Create a Task\n        ")]
+                [
+                  _vm._v(
+                    "\n            Edit " + _vm._s(_vm.task.name) + "\n        "
+                  )
+                ]
               )
             ]
           },
@@ -28710,6 +28722,7 @@ var render = function() {
                   on: {
                     submit: function($event) {
                       $event.preventDefault()
+                      return _vm.editTask($event)
                     }
                   }
                 },
@@ -28748,8 +28761,8 @@ var render = function() {
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.form.userId,
-                          expression: "form.userId"
+                          value: _vm.form.user_id,
+                          expression: "form.user_id"
                         }
                       ],
                       staticClass: "form-select w-full rounded-md shadow-sm",
@@ -28766,7 +28779,7 @@ var render = function() {
                             })
                           _vm.$set(
                             _vm.form,
-                            "userId",
+                            "user_id",
                             $event.target.multiple
                               ? $$selectedVal
                               : $$selectedVal[0]
@@ -28827,7 +28840,7 @@ var render = function() {
                       class: { "opacity-25": _vm.form.processing },
                       attrs: { type: "submit", disabled: _vm.form.processing }
                     },
-                    [_vm._v("Add Task")]
+                    [_vm._v("Save Changes")]
                   )
                 ],
                 1

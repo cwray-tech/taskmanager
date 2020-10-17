@@ -15,7 +15,7 @@
                         <jet-input-error :message="form.error('name')" class="mt-2" />
 
                         <jet-label for="user_id" class="mt-4" value="Assigned To" />
-                        <select id="user_id" name="user_id" v-model="form.userId" class="form-select w-full rounded-md shadow-sm">
+                        <select id="user_id" name="user_id" v-model="form.user_id" class="form-select w-full rounded-md shadow-sm">
                             <option v-for="user in users" :key="user.id" :value="user.id">{{ user.name }}</option>
                         </select>
                         <jet-input-error :message="form.error('user_id')" class="mt-2" />
@@ -52,7 +52,7 @@ export default {
             form: this.$inertia.form({
                 name: '',
                 details: '',
-                userId: null
+                user_id: null
             })
         }
     },

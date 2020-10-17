@@ -41,17 +41,12 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $validated = $request->validate([
             'name' => ['required', 'min:3'],
             'details' => ['nullable'],
-            'userId' => ['required', 'exists:users,id']
+            'user_id' => ['required', 'exists:users,id']
         ]);
-        Auth::user()->currentTeam->tasks()->create(
-            [
-                'name' => $request->name,
-                'details' => $request->details,
-                'user_id' => $request->userId
-            ]);
+        Auth::user()->currentTeam->tasks()->create($validated);
 
         return Redirect::route('tasks.index');
     }
@@ -77,22 +72,25 @@ class TaskController extends Controller
     {
         return Inertia::render('Tasks/Edit', [
             'task' => $task->toArray(),
-            'users' => $request->user()->currentTeam->users->toArray()
+            'users' => $request->user()->currentTeam->allUsers()->toArray()
         ]);
     }
 
     /**
      * @param Request $request
      * @param Task $task
-     * @return TaskResource
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request, Task $task)
     {
-        $task->update($request->validated());
+        $validated = $request->validate([
+            'name' => ['required', 'min:3'],
+            'details' => ['nullable'],
+            'user_id' => ['required', 'exists:users,id']
+        ]);
+        $task->update($validated);
 
-        $request->session()->flash('task.id', $task->id);
-
-        return new TaskResource($task);
+        return Redirect::route('tasks.index');
     }
 
     /**
