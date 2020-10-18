@@ -41,8 +41,10 @@
                                 <div v-else>-</div>
                             </td>
                             <td class="px-6 py-4 whitespace-no-wrap text-right text-sm leading-5 font-medium">
-                                <CardLink :href="route('tasks.edit', task.id)"
-                                          class="text-indigo-600 hover:text-indigo-900">Edit
+                                <CardLink :href="route('tasks.show', task.id)"
+                                          class="mr-2">View Details
+                                </CardLink>
+                                <CardLink :href="route('tasks.edit', task.id)">Edit
                                 </CardLink>
                             </td>
                         </tr>

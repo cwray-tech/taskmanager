@@ -2181,6 +2181,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3046,6 +3048,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Jetstream_DropdownLink__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../Jetstream/DropdownLink */ "./resources/js/Jetstream/DropdownLink.vue");
 /* harmony import */ var _Jetstream_NavLink__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../Jetstream/NavLink */ "./resources/js/Jetstream/NavLink.vue");
 /* harmony import */ var _Jetstream_ResponsiveNavLink__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../Jetstream/ResponsiveNavLink */ "./resources/js/Jetstream/ResponsiveNavLink.vue");
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -4565,6 +4573,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Jetstream_ActionMessage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../Jetstream/ActionMessage */ "./resources/js/Jetstream/ActionMessage.vue");
 /* harmony import */ var _Jetstream_DangerButton__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../Jetstream/DangerButton */ "./resources/js/Jetstream/DangerButton.vue");
 /* harmony import */ var _Components_DeleteTask__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../Components/DeleteTask */ "./resources/js/Components/DeleteTask.vue");
+/* harmony import */ var _Components_CardLink__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../Components/CardLink */ "./resources/js/Components/CardLink.vue");
 //
 //
 //
@@ -4601,6 +4610,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+
 
 
 
@@ -4618,7 +4629,8 @@ __webpack_require__.r(__webpack_exports__);
     JetLabel: _Jetstream_Label__WEBPACK_IMPORTED_MODULE_3__["default"],
     JetInputError: _Jetstream_InputError__WEBPACK_IMPORTED_MODULE_4__["default"],
     JetActionMessage: _Jetstream_ActionMessage__WEBPACK_IMPORTED_MODULE_5__["default"],
-    JetDangerButton: _Jetstream_DangerButton__WEBPACK_IMPORTED_MODULE_6__["default"]
+    JetDangerButton: _Jetstream_DangerButton__WEBPACK_IMPORTED_MODULE_6__["default"],
+    CardLink: _Components_CardLink__WEBPACK_IMPORTED_MODULE_8__["default"]
   },
   props: ['users', 'task'],
   data: function data() {
@@ -4692,6 +4704,49 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Layouts/AppLayout */ "./resources/js/Layouts/AppLayout.vue");
+/* harmony import */ var _Components_CardLink__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Components/CardLink */ "./resources/js/Components/CardLink.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -4710,10 +4765,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['task'],
   components: {
-    AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"]
+    AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"],
+    CardLink: _Components_CardLink__WEBPACK_IMPORTED_MODULE_1__["default"]
   }
 });
 
@@ -24601,8 +24658,21 @@ var render = function() {
                                   _c(
                                     "CardLink",
                                     {
-                                      staticClass:
-                                        "text-indigo-600 hover:text-indigo-900",
+                                      staticClass: "mr-2",
+                                      attrs: {
+                                        href: _vm.route("tasks.show", task.id)
+                                      }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "View Details\n                                "
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "CardLink",
+                                    {
                                       attrs: {
                                         href: _vm.route("tasks.edit", task.id)
                                       }
@@ -26475,6 +26545,28 @@ var render = function() {
                     }
                   },
                   [_vm._v("\n                    Dashboard\n                ")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "jet-responsive-nav-link",
+                  {
+                    attrs: {
+                      href: _vm.route("tasks.index"),
+                      active: _vm.$page.currentRouteName == "tasks.index"
+                    }
+                  },
+                  [_vm._v("\n                    Team Tasks\n                ")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "jet-responsive-nav-link",
+                  {
+                    attrs: {
+                      href: _vm.route("tasks.create"),
+                      active: _vm.$page.currentRouteName == "tasks.create"
+                    }
+                  },
+                  [_vm._v("\n                    New Task\n                ")]
                 )
               ],
               1
@@ -26705,7 +26797,10 @@ var render = function() {
       _c("header", { staticClass: "bg-white shadow" }, [
         _c(
           "div",
-          { staticClass: "max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8" },
+          {
+            staticClass:
+              "max-w-7xl flex justify-between mx-auto py-6 px-4 sm:px-6 lg:px-8"
+          },
           [_vm._t("header")],
           2
         )
@@ -28939,6 +29034,10 @@ var render = function() {
           key: "header",
           fn: function() {
             return [
+              _c("CardLink", { attrs: { href: "/tasks" } }, [
+                _vm._v("Back to all Tasks")
+              ]),
+              _vm._v(" "),
               _c(
                 "h2",
                 {
@@ -29217,18 +29316,9 @@ var render = function() {
           key: "header",
           fn: function() {
             return [
-              _c(
-                "h2",
-                {
-                  staticClass:
-                    "font-semibold text-xl text-gray-800 leading-tight"
-                },
-                [
-                  _vm._v(
-                    "\n            " + _vm._s(_vm.task.name) + "\n        "
-                  )
-                ]
-              )
+              _c("CardLink", { attrs: { href: "/tasks" } }, [
+                _vm._v("Back to all Tasks")
+              ])
             ]
           },
           proxy: true
@@ -29239,9 +29329,190 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "py-12" }, [
         _c("div", { staticClass: "max-w-7xl mx-auto sm:px-6 lg:px-8" }, [
-          _c("div", {
-            staticClass: "bg-white overflow-hidden shadow-xl sm:rounded-lg"
-          })
+          _c(
+            "div",
+            { staticClass: "bg-white overflow-hidden shadow-xl sm:rounded-lg" },
+            [
+              _c(
+                "div",
+                {
+                  staticClass: "bg-white shadow overflow-hidden sm:rounded-lg"
+                },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "px-4 flex justify-between py-5 border-b border-gray-200 sm:px-6"
+                    },
+                    [
+                      _c("div", { staticClass: "w-3/4" }, [
+                        _c(
+                          "h1",
+                          {
+                            staticClass:
+                              "text-xl leading-6 font-medium text-gray-900"
+                          },
+                          [
+                            _vm._v(
+                              "\n                                Task Details\n                            "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "p",
+                          {
+                            staticClass:
+                              "mt-1 max-w-2xl text-sm leading-5 text-gray-500"
+                          },
+                          [
+                            _vm._v(
+                              "\n                                View more details about this task and who it is assigned to on the team.\n                            "
+                            )
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "InertiaLink",
+                        {
+                          staticClass:
+                            "inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150",
+                          attrs: { href: _vm.route("tasks.edit", _vm.task.id) }
+                        },
+                        [
+                          _vm._v(
+                            "\n                            Edit Task\n                        "
+                          )
+                        ]
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "px-4 py-5 sm:p-0" }, [
+                    _c("dl", [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 sm:py-5"
+                        },
+                        [
+                          _c(
+                            "dt",
+                            {
+                              staticClass:
+                                "text-sm leading-5 font-medium text-gray-500"
+                            },
+                            [
+                              _vm._v(
+                                "\n                                    Task Name\n                                "
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "dd",
+                            {
+                              staticClass:
+                                "mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2"
+                            },
+                            [
+                              _vm._v(
+                                "\n                                    " +
+                                  _vm._s(_vm.task.name) +
+                                  "\n                                "
+                              )
+                            ]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5"
+                        },
+                        [
+                          _c(
+                            "dt",
+                            {
+                              staticClass:
+                                "text-sm leading-5 font-medium text-gray-500"
+                            },
+                            [
+                              _vm._v(
+                                "\n                                    Assigned To\n                                "
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "dd",
+                            {
+                              staticClass:
+                                "mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2"
+                            },
+                            [
+                              _vm._v(
+                                "\n                                    " +
+                                  _vm._s(
+                                    _vm.task.user
+                                      ? _vm.task.user.name
+                                      : "This task has not yet been assigned."
+                                  ) +
+                                  "\n                                "
+                              )
+                            ]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5"
+                        },
+                        [
+                          _c(
+                            "dt",
+                            {
+                              staticClass:
+                                "text-sm leading-5 font-medium text-gray-500"
+                            },
+                            [
+                              _vm._v(
+                                "\n                                    Additional Details\n                                "
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "dd",
+                            {
+                              staticClass:
+                                "mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2"
+                            },
+                            [
+                              _vm._v(
+                                "\n                                    " +
+                                  _vm._s(_vm.task.details) +
+                                  "\n                                "
+                              )
+                            ]
+                          )
+                        ]
+                      )
+                    ])
+                  ])
+                ]
+              )
+            ]
+          )
         ])
       ])
     ]

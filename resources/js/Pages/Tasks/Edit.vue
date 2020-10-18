@@ -1,6 +1,7 @@
 <template>
     <app-layout>
         <template #header>
+            <CardLink href="/tasks">Back to all Tasks</CardLink>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 Edit {{ task.name }}
             </h2>
@@ -43,6 +44,7 @@ import JetInputError from "../../Jetstream/InputError";
 import JetActionMessage from "../../Jetstream/ActionMessage";
 import JetDangerButton from "../../Jetstream/DangerButton";
 import DeleteTask from "../../Components/DeleteTask";
+import CardLink from "../../Components/CardLink";
 export default {
     components: {
         DeleteTask,
@@ -52,7 +54,8 @@ export default {
         JetLabel,
         JetInputError,
         JetActionMessage,
-        JetDangerButton
+        JetDangerButton,
+        CardLink
     },
     props: ['users', 'task'],
     data() {
