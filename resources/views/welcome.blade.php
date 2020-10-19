@@ -1,19 +1,4 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Task Manager') }}</title>
-    <link rel="icon"
-          type="image/svg"
-          href="/logo.svg">
-    <!-- Styles -->
-    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-
-</head>
-<body>
+<x-guest-layout>
 <div class="relative bg-gray-50 overflow-hidden">
     <div class="hidden sm:block sm:absolute sm:inset-y-0 sm:h-full sm:w-full">
         <div class="relative h-full max-w-screen-xl mx-auto">
@@ -106,8 +91,9 @@
                 </div>
             </div>
         </main>
+
     </div>
+
 </div>
 
-</body>
-</html>
+</x-guest-layout>

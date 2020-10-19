@@ -23,5 +23,6 @@
     </head>
     <body class="font-sans antialiased">
         @inertia
+        @include('partials.footer')
     </body>
 </html>
