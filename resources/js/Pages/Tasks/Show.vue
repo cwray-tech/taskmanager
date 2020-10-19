@@ -18,9 +18,10 @@
                                 </p>
                             </div>
 
-                            <InertiaLink :href="route('tasks.edit', task.id)" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150">
+                            <ButtonLink :href="route('tasks.edit', task.id)">
                                 Edit Task
-                            </InertiaLink>
+                            </ButtonLink>
+
                         </div>
                         <div class="px-4 py-5 sm:p-0">
                             <dl>
@@ -60,9 +61,13 @@
 <script>
 import AppLayout from '../../Layouts/AppLayout'
 import CardLink from "../../Components/CardLink";
+import ButtonLink from "../../Components/ButtonLink";
+import TaskButtons from "../../Components/TaskButtons";
 export default {
     props:['task'],
     components: {
+        TaskButtons,
+        ButtonLink,
         AppLayout,
         CardLink
     },

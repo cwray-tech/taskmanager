@@ -1,13 +1,14 @@
 <template>
     <app-layout>
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            <h1 class="font-semibold text-xl text-gray-800 leading-tight">
                 Create a Task
-            </h2>
+            </h1>
         </template>
 
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <TaskButtons></TaskButtons>
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-6">
                     <form @submit.prevent="addTask">
                         <jet-label for="task_name" value="Task Name" />
@@ -32,11 +33,12 @@
 </template>
 <script>
 import AppLayout from '../../Layouts/AppLayout'
-import JetButton from "../../Jetstream/Button";
-import JetInput from "../../Jetstream/Input";
-import JetLabel from "../../Jetstream/Label";
-import JetInputError from "../../Jetstream/InputError";
-import JetActionMessage from "../../Jetstream/ActionMessage";
+import JetButton from "../../Jetstream/Button"
+import JetInput from "../../Jetstream/Input"
+import JetLabel from "../../Jetstream/Label"
+import JetInputError from "../../Jetstream/InputError"
+import JetActionMessage from "../../Jetstream/ActionMessage"
+import TaskButtons from "../../Components/TaskButtons"
 export default {
     components: {
         JetButton,
@@ -44,7 +46,8 @@ export default {
         JetInput,
         JetLabel,
         JetInputError,
-        JetActionMessage
+        JetActionMessage,
+        TaskButtons
     },
     props: ['users'],
     data() {

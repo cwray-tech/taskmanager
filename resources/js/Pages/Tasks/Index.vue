@@ -8,6 +8,7 @@
 
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <TaskButtons></TaskButtons>
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                     <TaskList :tasks="tasks"/>
                 </div>
@@ -18,11 +19,15 @@
 <script>
 import AppLayout from '../../Layouts/AppLayout'
 import TaskList from '../../Components/TasksList'
+import ButtonLink from '../../Components/ButtonLink'
+import TaskButtons from "../../Components/TaskButtons";
 export default {
     props:['tasks', 'user'],
     components: {
+        TaskButtons,
         AppLayout,
-        TaskList
+        TaskList,
+        ButtonLink
     },
 }
 </script>

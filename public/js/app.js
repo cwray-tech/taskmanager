@@ -1925,6 +1925,26 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Components/ButtonLink.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Components/ButtonLink.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['href']
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Components/CardLink.vue?vue&type=script&lang=js&":
 /*!*******************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Components/CardLink.vue?vue&type=script&lang=js& ***!
@@ -2114,6 +2134,35 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Components/TaskButtons.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Components/TaskButtons.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ButtonLink__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ButtonLink */ "./resources/js/Components/ButtonLink.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    ButtonLink: _ButtonLink__WEBPACK_IMPORTED_MODULE_0__["default"]
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Components/TasksList.vue?vue&type=script&lang=js&":
 /*!********************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Components/TasksList.vue?vue&type=script&lang=js& ***!
@@ -2179,10 +2228,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2190,7 +2235,9 @@ __webpack_require__.r(__webpack_exports__);
     CompleteTask: _CompleteTask__WEBPACK_IMPORTED_MODULE_1__["default"],
     CardLink: _CardLink__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
-  props: ['tasks']
+  props: {
+    tasks: Array
+  }
 });
 
 /***/ }),
@@ -4488,6 +4535,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Jetstream_Label__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../Jetstream/Label */ "./resources/js/Jetstream/Label.vue");
 /* harmony import */ var _Jetstream_InputError__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../Jetstream/InputError */ "./resources/js/Jetstream/InputError.vue");
 /* harmony import */ var _Jetstream_ActionMessage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../Jetstream/ActionMessage */ "./resources/js/Jetstream/ActionMessage.vue");
+/* harmony import */ var _Components_TaskButtons__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../Components/TaskButtons */ "./resources/js/Components/TaskButtons.vue");
 //
 //
 //
@@ -4520,6 +4568,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+
 
 
 
@@ -4533,7 +4583,8 @@ __webpack_require__.r(__webpack_exports__);
     JetInput: _Jetstream_Input__WEBPACK_IMPORTED_MODULE_2__["default"],
     JetLabel: _Jetstream_Label__WEBPACK_IMPORTED_MODULE_3__["default"],
     JetInputError: _Jetstream_InputError__WEBPACK_IMPORTED_MODULE_4__["default"],
-    JetActionMessage: _Jetstream_ActionMessage__WEBPACK_IMPORTED_MODULE_5__["default"]
+    JetActionMessage: _Jetstream_ActionMessage__WEBPACK_IMPORTED_MODULE_5__["default"],
+    TaskButtons: _Components_TaskButtons__WEBPACK_IMPORTED_MODULE_6__["default"]
   },
   props: ['users'],
   data: function data() {
@@ -4665,6 +4716,8 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Layouts/AppLayout */ "./resources/js/Layouts/AppLayout.vue");
 /* harmony import */ var _Components_TasksList__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Components/TasksList */ "./resources/js/Components/TasksList.vue");
+/* harmony import */ var _Components_ButtonLink__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Components/ButtonLink */ "./resources/js/Components/ButtonLink.vue");
+/* harmony import */ var _Components_TaskButtons__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../Components/TaskButtons */ "./resources/js/Components/TaskButtons.vue");
 //
 //
 //
@@ -4682,13 +4735,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['tasks', 'user'],
   components: {
+    TaskButtons: _Components_TaskButtons__WEBPACK_IMPORTED_MODULE_3__["default"],
     AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"],
-    TaskList: _Components_TasksList__WEBPACK_IMPORTED_MODULE_1__["default"]
+    TaskList: _Components_TasksList__WEBPACK_IMPORTED_MODULE_1__["default"],
+    ButtonLink: _Components_ButtonLink__WEBPACK_IMPORTED_MODULE_2__["default"]
   }
 });
 
@@ -4705,6 +4763,8 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Layouts/AppLayout */ "./resources/js/Layouts/AppLayout.vue");
 /* harmony import */ var _Components_CardLink__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Components/CardLink */ "./resources/js/Components/CardLink.vue");
+/* harmony import */ var _Components_ButtonLink__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Components/ButtonLink */ "./resources/js/Components/ButtonLink.vue");
+/* harmony import */ var _Components_TaskButtons__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../Components/TaskButtons */ "./resources/js/Components/TaskButtons.vue");
 //
 //
 //
@@ -4764,11 +4824,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['task'],
   components: {
+    TaskButtons: _Components_TaskButtons__WEBPACK_IMPORTED_MODULE_3__["default"],
+    ButtonLink: _Components_ButtonLink__WEBPACK_IMPORTED_MODULE_2__["default"],
     AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"],
     CardLink: _Components_CardLink__WEBPACK_IMPORTED_MODULE_1__["default"]
   }
@@ -24301,6 +24366,39 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Components/ButtonLink.vue?vue&type=template&id=5ec968d7&":
+/*!*************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Components/ButtonLink.vue?vue&type=template&id=5ec968d7& ***!
+  \*************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "InertiaLink",
+    {
+      staticClass:
+        "inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150",
+      attrs: { href: _vm.href }
+    },
+    [_vm._t("default")],
+    2
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Components/CardLink.vue?vue&type=template&id=36cedf75&":
 /*!***********************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Components/CardLink.vue?vue&type=template&id=36cedf75& ***!
@@ -24548,6 +24646,57 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Components/TaskButtons.vue?vue&type=template&id=5398eb41&":
+/*!**************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Components/TaskButtons.vue?vue&type=template&id=5398eb41& ***!
+  \**************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "flex items-center justify-between mb-4" },
+    [
+      _c(
+        "div",
+        [
+          _c("ButtonLink", { attrs: { href: _vm.route("tasks.index") } }, [
+            _vm._v("All Tasks")
+          ]),
+          _vm._v(" "),
+          _c("ButtonLink", { attrs: { href: _vm.route("tasks.pending") } }, [
+            _vm._v("Pending Tasks")
+          ]),
+          _vm._v(" "),
+          _c("ButtonLink", { attrs: { href: _vm.route("tasks.completed") } }, [
+            _vm._v("Completed Tasks")
+          ])
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("ButtonLink", { attrs: { href: _vm.route("tasks.create") } }, [
+        _vm._v("New Task")
+      ])
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Components/TasksList.vue?vue&type=template&id=d1191cde&":
 /*!************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Components/TasksList.vue?vue&type=template&id=d1191cde& ***!
@@ -24579,123 +24728,129 @@ var render = function() {
                 "shadow overflow-hidden border-b border-gray-200 sm:rounded-lg"
             },
             [
-              _vm.tasks && _vm.tasks.length > 1
-                ? _c(
-                    "table",
-                    { staticClass: "min-w-full divide-y divide-gray-200" },
-                    [
-                      _vm._m(0),
-                      _vm._v(" "),
-                      _c(
-                        "tbody",
-                        _vm._l(_vm.tasks, function(task) {
-                          return _c(
-                            "tr",
-                            { key: task.id, staticClass: "bg-white" },
+              _c(
+                "table",
+                { staticClass: "min-w-full divide-y divide-gray-200" },
+                [
+                  _vm._m(0),
+                  _vm._v(" "),
+                  _c(
+                    "tbody",
+                    _vm._l(_vm.tasks, function(task) {
+                      return _c(
+                        "tr",
+                        { key: task.id, staticClass: "bg-white" },
+                        [
+                          _c(
+                            "td",
+                            {
+                              staticClass:
+                                "px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900"
+                            },
+                            [_c("CompleteTask", { attrs: { task: task } })],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "td",
+                            {
+                              staticClass:
+                                "px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900"
+                            },
                             [
-                              _c(
-                                "td",
-                                {
-                                  staticClass:
-                                    "px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900"
-                                },
-                                [_c("CompleteTask", { attrs: { task: task } })],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "td",
-                                {
-                                  staticClass:
-                                    "px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900"
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                                " +
-                                      _vm._s(task.name) +
-                                      "\n                            "
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "td",
-                                {
-                                  staticClass:
-                                    "px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900"
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                                " +
-                                      _vm._s(task.preview) +
-                                      "\n                            "
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "td",
-                                {
-                                  staticClass:
-                                    "px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500"
-                                },
-                                [
-                                  task.user
-                                    ? _c("div", [
-                                        _vm._v(_vm._s(task.user.name))
-                                      ])
-                                    : _c("div", [_vm._v("-")])
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "td",
-                                {
-                                  staticClass:
-                                    "px-6 py-4 whitespace-no-wrap text-right text-sm leading-5 font-medium"
-                                },
-                                [
-                                  _c(
-                                    "CardLink",
-                                    {
-                                      staticClass: "mr-2",
-                                      attrs: {
-                                        href: _vm.route("tasks.show", task.id)
-                                      }
-                                    },
-                                    [
-                                      _vm._v(
-                                        "View Details\n                                "
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "CardLink",
-                                    {
-                                      attrs: {
-                                        href: _vm.route("tasks.edit", task.id)
-                                      }
-                                    },
-                                    [
-                                      _vm._v(
-                                        "Edit\n                                "
-                                      )
-                                    ]
-                                  )
-                                ],
-                                1
+                              _vm._v(
+                                "\n                            " +
+                                  _vm._s(task.name) +
+                                  "\n                        "
                               )
                             ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "td",
+                            {
+                              staticClass:
+                                "px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900"
+                            },
+                            [
+                              _vm._v(
+                                "\n                            " +
+                                  _vm._s(task.preview) +
+                                  "\n                        "
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "td",
+                            {
+                              staticClass:
+                                "px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500"
+                            },
+                            [
+                              task.user
+                                ? _c("div", [_vm._v(_vm._s(task.user.name))])
+                                : _c("div", [_vm._v("-")])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "td",
+                            {
+                              staticClass:
+                                "px-6 py-4 whitespace-no-wrap text-right text-sm leading-5 font-medium"
+                            },
+                            [
+                              _c(
+                                "CardLink",
+                                {
+                                  staticClass: "mr-2",
+                                  attrs: {
+                                    href: _vm.route("tasks.show", task.id)
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "View Details\n                            "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "CardLink",
+                                {
+                                  attrs: {
+                                    href: _vm.route("tasks.edit", task.id)
+                                  }
+                                },
+                                [_vm._v("Edit\n                            ")]
+                              )
+                            ],
+                            1
                           )
-                        }),
-                        0
+                        ]
                       )
-                    ]
+                    }),
+                    0
                   )
-                : _c("div", { staticClass: "p-4" }, [
-                    _vm._v("You are all caught up! Want to add a new task?")
-                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _vm.tasks.length == 0
+                ? _c(
+                    "div",
+                    { staticClass: "p-4" },
+                    [
+                      _vm._v("You are all caught up! "),
+                      _c(
+                        "CardLink",
+                        { attrs: { href: _vm.route("tasks.create") } },
+                        [_vm._v("Want to add a new task?")]
+                      )
+                    ],
+                    1
+                  )
+                : _vm._e()
             ]
           )
         ]
@@ -24718,7 +24873,7 @@ var staticRenderFns = [
           },
           [
             _vm._v(
-              "\n                                Completed?\n                            "
+              "\n                            Completed?\n                        "
             )
           ]
         ),
@@ -24731,7 +24886,7 @@ var staticRenderFns = [
           },
           [
             _vm._v(
-              "\n                                Task Name\n                            "
+              "\n                            Task Name\n                        "
             )
           ]
         ),
@@ -24744,7 +24899,7 @@ var staticRenderFns = [
           },
           [
             _vm._v(
-              "\n                                Details\n                            "
+              "\n                            Details\n                        "
             )
           ]
         ),
@@ -24757,7 +24912,7 @@ var staticRenderFns = [
           },
           [
             _vm._v(
-              "\n                                Assigned To\n                            "
+              "\n                            Assigned To\n                        "
             )
           ]
         ),
@@ -28844,7 +28999,7 @@ var render = function() {
           fn: function() {
             return [
               _c(
-                "h2",
+                "h1",
                 {
                   staticClass:
                     "font-semibold text-xl text-gray-800 leading-tight"
@@ -28860,146 +29015,153 @@ var render = function() {
     [
       _vm._v(" "),
       _c("div", { staticClass: "py-12" }, [
-        _c("div", { staticClass: "max-w-7xl mx-auto sm:px-6 lg:px-8" }, [
-          _c(
-            "div",
-            {
-              staticClass:
-                "bg-white overflow-hidden shadow-xl sm:rounded-lg p-6"
-            },
-            [
-              _c(
-                "form",
-                {
-                  on: {
-                    submit: function($event) {
-                      $event.preventDefault()
-                      return _vm.addTask($event)
+        _c(
+          "div",
+          { staticClass: "max-w-7xl mx-auto sm:px-6 lg:px-8" },
+          [
+            _c("TaskButtons"),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass:
+                  "bg-white overflow-hidden shadow-xl sm:rounded-lg p-6"
+              },
+              [
+                _c(
+                  "form",
+                  {
+                    on: {
+                      submit: function($event) {
+                        $event.preventDefault()
+                        return _vm.addTask($event)
+                      }
                     }
-                  }
-                },
-                [
-                  _c("jet-label", {
-                    attrs: { for: "task_name", value: "Task Name" }
-                  }),
-                  _vm._v(" "),
-                  _c("jet-input", {
-                    ref: "task_name",
-                    staticClass: "mt-1 block w-full",
-                    attrs: { id: "task_name", type: "text" },
-                    model: {
-                      value: _vm.form.name,
-                      callback: function($$v) {
-                        _vm.$set(_vm.form, "name", $$v)
+                  },
+                  [
+                    _c("jet-label", {
+                      attrs: { for: "task_name", value: "Task Name" }
+                    }),
+                    _vm._v(" "),
+                    _c("jet-input", {
+                      ref: "task_name",
+                      staticClass: "mt-1 block w-full",
+                      attrs: { id: "task_name", type: "text" },
+                      model: {
+                        value: _vm.form.name,
+                        callback: function($$v) {
+                          _vm.$set(_vm.form, "name", $$v)
+                        },
+                        expression: "form.name"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("jet-input-error", {
+                      staticClass: "mt-2",
+                      attrs: { message: _vm.form.error("name") }
+                    }),
+                    _vm._v(" "),
+                    _c("jet-label", {
+                      staticClass: "mt-4",
+                      attrs: { for: "user_id", value: "Assigned To" }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "select",
+                      {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.user_id,
+                            expression: "form.user_id"
+                          }
+                        ],
+                        staticClass: "form-select w-full rounded-md shadow-sm",
+                        attrs: { id: "user_id", name: "user_id" },
+                        on: {
+                          change: function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.$set(
+                              _vm.form,
+                              "user_id",
+                              $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            )
+                          }
+                        }
                       },
-                      expression: "form.name"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("jet-input-error", {
-                    staticClass: "mt-2",
-                    attrs: { message: _vm.form.error("name") }
-                  }),
-                  _vm._v(" "),
-                  _c("jet-label", {
-                    staticClass: "mt-4",
-                    attrs: { for: "user_id", value: "Assigned To" }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "select",
-                    {
+                      _vm._l(_vm.users, function(user) {
+                        return _c(
+                          "option",
+                          { key: user.id, domProps: { value: user.id } },
+                          [_vm._v(_vm._s(user.name))]
+                        )
+                      }),
+                      0
+                    ),
+                    _vm._v(" "),
+                    _c("jet-input-error", {
+                      staticClass: "mt-2",
+                      attrs: { message: _vm.form.error("user_id") }
+                    }),
+                    _vm._v(" "),
+                    _c("jet-label", {
+                      staticClass: "mt-4",
+                      attrs: { for: "details", value: "Additional Details" }
+                    }),
+                    _vm._v(" "),
+                    _c("textarea", {
                       directives: [
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.form.user_id,
-                          expression: "form.user_id"
+                          value: _vm.form.details,
+                          expression: "form.details"
                         }
                       ],
-                      staticClass: "form-select w-full rounded-md shadow-sm",
-                      attrs: { id: "user_id", name: "user_id" },
+                      staticClass: "form-input mb-4 mt-1 p-4 block w-full",
+                      attrs: { name: "details" },
+                      domProps: { value: _vm.form.details },
                       on: {
-                        change: function($event) {
-                          var $$selectedVal = Array.prototype.filter
-                            .call($event.target.options, function(o) {
-                              return o.selected
-                            })
-                            .map(function(o) {
-                              var val = "_value" in o ? o._value : o.value
-                              return val
-                            })
-                          _vm.$set(
-                            _vm.form,
-                            "user_id",
-                            $event.target.multiple
-                              ? $$selectedVal
-                              : $$selectedVal[0]
-                          )
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.form, "details", $event.target.value)
                         }
                       }
-                    },
-                    _vm._l(_vm.users, function(user) {
-                      return _c(
-                        "option",
-                        { key: user.id, domProps: { value: user.id } },
-                        [_vm._v(_vm._s(user.name))]
-                      )
                     }),
-                    0
-                  ),
-                  _vm._v(" "),
-                  _c("jet-input-error", {
-                    staticClass: "mt-2",
-                    attrs: { message: _vm.form.error("user_id") }
-                  }),
-                  _vm._v(" "),
-                  _c("jet-label", {
-                    staticClass: "mt-4",
-                    attrs: { for: "details", value: "Additional Details" }
-                  }),
-                  _vm._v(" "),
-                  _c("textarea", {
-                    directives: [
+                    _vm._v(" "),
+                    _c("jet-input-error", {
+                      staticClass: "mt-2",
+                      attrs: { message: _vm.form.error("details") }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "jet-button",
                       {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.form.details,
-                        expression: "form.details"
-                      }
-                    ],
-                    staticClass: "form-input mb-4 mt-1 p-4 block w-full",
-                    attrs: { name: "details" },
-                    domProps: { value: _vm.form.details },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(_vm.form, "details", $event.target.value)
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("jet-input-error", {
-                    staticClass: "mt-2",
-                    attrs: { message: _vm.form.error("details") }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "jet-button",
-                    {
-                      class: { "opacity-25": _vm.form.processing },
-                      attrs: { type: "submit", disabled: _vm.form.processing }
-                    },
-                    [_vm._v("Add Task")]
-                  )
-                ],
-                1
-              )
-            ]
-          )
-        ])
+                        class: { "opacity-25": _vm.form.processing },
+                        attrs: { type: "submit", disabled: _vm.form.processing }
+                      },
+                      [_vm._v("Add Task")]
+                    )
+                  ],
+                  1
+                )
+              ]
+            )
+          ],
+          1
+        )
       ])
     ]
   )
@@ -29274,14 +29436,23 @@ var render = function() {
     [
       _vm._v(" "),
       _c("div", { staticClass: "py-12" }, [
-        _c("div", { staticClass: "max-w-7xl mx-auto sm:px-6 lg:px-8" }, [
-          _c(
-            "div",
-            { staticClass: "bg-white overflow-hidden shadow-xl sm:rounded-lg" },
-            [_c("TaskList", { attrs: { tasks: _vm.tasks } })],
-            1
-          )
-        ])
+        _c(
+          "div",
+          { staticClass: "max-w-7xl mx-auto sm:px-6 lg:px-8" },
+          [
+            _c("TaskButtons"),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "bg-white overflow-hidden shadow-xl sm:rounded-lg"
+              },
+              [_c("TaskList", { attrs: { tasks: _vm.tasks } })],
+              1
+            )
+          ],
+          1
+        )
       ])
     ]
   )
@@ -29375,10 +29546,8 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c(
-                        "InertiaLink",
+                        "ButtonLink",
                         {
-                          staticClass:
-                            "inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150",
                           attrs: { href: _vm.route("tasks.edit", _vm.task.id) }
                         },
                         [
@@ -45199,6 +45368,75 @@ module.exports = function(module) {
 
 /***/ }),
 
+/***/ "./resources/js/Components/ButtonLink.vue":
+/*!************************************************!*\
+  !*** ./resources/js/Components/ButtonLink.vue ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ButtonLink_vue_vue_type_template_id_5ec968d7___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ButtonLink.vue?vue&type=template&id=5ec968d7& */ "./resources/js/Components/ButtonLink.vue?vue&type=template&id=5ec968d7&");
+/* harmony import */ var _ButtonLink_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ButtonLink.vue?vue&type=script&lang=js& */ "./resources/js/Components/ButtonLink.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ButtonLink_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ButtonLink_vue_vue_type_template_id_5ec968d7___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ButtonLink_vue_vue_type_template_id_5ec968d7___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Components/ButtonLink.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Components/ButtonLink.vue?vue&type=script&lang=js&":
+/*!*************************************************************************!*\
+  !*** ./resources/js/Components/ButtonLink.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ButtonLink_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./ButtonLink.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Components/ButtonLink.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ButtonLink_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Components/ButtonLink.vue?vue&type=template&id=5ec968d7&":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/Components/ButtonLink.vue?vue&type=template&id=5ec968d7& ***!
+  \*******************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ButtonLink_vue_vue_type_template_id_5ec968d7___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./ButtonLink.vue?vue&type=template&id=5ec968d7& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Components/ButtonLink.vue?vue&type=template&id=5ec968d7&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ButtonLink_vue_vue_type_template_id_5ec968d7___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ButtonLink_vue_vue_type_template_id_5ec968d7___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/Components/CardLink.vue":
 /*!**********************************************!*\
   !*** ./resources/js/Components/CardLink.vue ***!
@@ -45401,6 +45639,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DeleteTask_vue_vue_type_template_id_72c8065b___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DeleteTask_vue_vue_type_template_id_72c8065b___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/Components/TaskButtons.vue":
+/*!*************************************************!*\
+  !*** ./resources/js/Components/TaskButtons.vue ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _TaskButtons_vue_vue_type_template_id_5398eb41___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TaskButtons.vue?vue&type=template&id=5398eb41& */ "./resources/js/Components/TaskButtons.vue?vue&type=template&id=5398eb41&");
+/* harmony import */ var _TaskButtons_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TaskButtons.vue?vue&type=script&lang=js& */ "./resources/js/Components/TaskButtons.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _TaskButtons_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _TaskButtons_vue_vue_type_template_id_5398eb41___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _TaskButtons_vue_vue_type_template_id_5398eb41___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Components/TaskButtons.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Components/TaskButtons.vue?vue&type=script&lang=js&":
+/*!**************************************************************************!*\
+  !*** ./resources/js/Components/TaskButtons.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TaskButtons_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./TaskButtons.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Components/TaskButtons.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TaskButtons_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Components/TaskButtons.vue?vue&type=template&id=5398eb41&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/Components/TaskButtons.vue?vue&type=template&id=5398eb41& ***!
+  \********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TaskButtons_vue_vue_type_template_id_5398eb41___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./TaskButtons.vue?vue&type=template&id=5398eb41& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Components/TaskButtons.vue?vue&type=template&id=5398eb41&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TaskButtons_vue_vue_type_template_id_5398eb41___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TaskButtons_vue_vue_type_template_id_5398eb41___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

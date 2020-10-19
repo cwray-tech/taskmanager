@@ -17,10 +17,13 @@ class TaskController extends Controller
      */
     public function index(Request $request)
     {
-        $tasks = $request->user()->currentTeam->tasks;
+        $tasks = $request->user()
+            ->currentTeam
+            ->tasks
+            ->toArray();
 
         return Inertia::render('Tasks/Index', [
-            'tasks' =>  $tasks->toArray()
+            'tasks' =>  $tasks
         ]);
     }
 
@@ -31,7 +34,10 @@ class TaskController extends Controller
     public function create(Request $request)
     {
         return Inertia::render('Tasks/Create', [
-            'users' => $request->user()->currentTeam->allUsers()->toArray()
+            'users' => $request->user()
+                ->currentTeam
+                ->allUsers()
+                ->toArray()
         ]);
     }
 
@@ -46,7 +52,9 @@ class TaskController extends Controller
             'details' => ['nullable'],
             'user_id' => ['nullable', 'exists:users,id']
         ]);
-        Auth::user()->currentTeam->tasks()->create($validated);
+
+        Auth::user()->currentTeam
+            ->tasks()->create($validated);
 
         return Redirect::route('tasks.index');
     }

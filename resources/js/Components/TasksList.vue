@@ -1,13 +1,9 @@
 <template>
-    <!--
-  Tailwind UI components require Tailwind CSS v1.8 and the @tailwindcss/ui plugin.
-  Read the documentation to get started: https://tailwindui.com/documentation
--->
     <div class="flex flex-col">
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                 <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                    <table v-if="tasks && tasks.length > 1" class="min-w-full divide-y divide-gray-200">
+                    <table class="min-w-full divide-y divide-gray-200">
                         <thead>
                         <tr>
                             <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
@@ -50,7 +46,7 @@
                         </tr>
                         </tbody>
                     </table>
-                    <div class="p-4" v-else>You are all caught up! Want to add a new task?</div>
+                    <div class="p-4" v-if="tasks.length == 0">You are all caught up! <CardLink :href="route('tasks.create')">Want to add a new task?</CardLink></div>
                 </div>
             </div>
         </div>
@@ -62,8 +58,8 @@ import CompleteTask from "./CompleteTask";
 
 export default {
     components: {CompleteTask, CardLink},
-    props: [
-        'tasks'
-    ]
+    props: {
+        tasks: Array
+    }
 }
 </script>

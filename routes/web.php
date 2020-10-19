@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\CompletedTasksController;
 use App\Http\Controllers\CompleteTaskController;
-use App\Http\Controllers\ProjectController;
-use App\Http\Controllers\StatusController;
+use App\Http\Controllers\PendingTasksController;
 use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +26,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    Route::get('/tasks/completed', CompletedTasksController::class)->name('tasks.completed');
+    Route::get('/tasks/pending', PendingTasksController::class)->name('tasks.pending');
 
     Route::resource('tasks', TaskController::class);
 
