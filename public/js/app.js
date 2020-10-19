@@ -1940,7 +1940,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['href']
+  props: ['href', 'active'],
+  computed: {
+    classes: function classes() {
+      return this.active ? 'inline-flex items-center px-4 py-2 bg-gray-200 border border-transparent rounded-md font-semibold text-xs text-gray-800 uppercase tracking-widest focus:outline-none transition ease-in-out duration-150' : 'inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150';
+    }
+  }
 });
 
 /***/ }),
@@ -24383,11 +24388,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "InertiaLink",
-    {
-      staticClass:
-        "inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150",
-      attrs: { href: _vm.href }
-    },
+    { class: _vm.classes, attrs: { href: _vm.href } },
     [_vm._t("default")],
     2
   )
@@ -24668,24 +24669,52 @@ var render = function() {
       _c(
         "div",
         [
-          _c("ButtonLink", { attrs: { href: _vm.route("tasks.index") } }, [
-            _vm._v("All Tasks")
-          ]),
+          _c(
+            "ButtonLink",
+            {
+              attrs: {
+                href: _vm.route("tasks.index"),
+                active: _vm.$page.currentRouteName == "tasks.index"
+              }
+            },
+            [_vm._v("All Tasks")]
+          ),
           _vm._v(" "),
-          _c("ButtonLink", { attrs: { href: _vm.route("tasks.pending") } }, [
-            _vm._v("Pending Tasks")
-          ]),
+          _c(
+            "ButtonLink",
+            {
+              attrs: {
+                href: _vm.route("tasks.pending"),
+                active: _vm.$page.currentRouteName == "tasks.pending"
+              }
+            },
+            [_vm._v("Pending Tasks")]
+          ),
           _vm._v(" "),
-          _c("ButtonLink", { attrs: { href: _vm.route("tasks.completed") } }, [
-            _vm._v("Completed Tasks")
-          ])
+          _c(
+            "ButtonLink",
+            {
+              attrs: {
+                href: _vm.route("tasks.completed"),
+                active: _vm.$page.currentRouteName == "tasks.completed"
+              }
+            },
+            [_vm._v("Completed Tasks")]
+          )
         ],
         1
       ),
       _vm._v(" "),
-      _c("ButtonLink", { attrs: { href: _vm.route("tasks.create") } }, [
-        _vm._v("New Task")
-      ])
+      _c(
+        "ButtonLink",
+        {
+          attrs: {
+            href: _vm.route("tasks.create"),
+            active: _vm.$page.currentRouteName == "tasks.create"
+          }
+        },
+        [_vm._v("New Task")]
+      )
     ],
     1
   )
@@ -26293,12 +26322,15 @@ var render = function() {
                     {
                       attrs: {
                         href: _vm.route("tasks.index"),
-                        active: _vm.$page.currentRouteName == "tasks.index"
+                        active:
+                          _vm.$page.currentRouteName == "tasks.index" ||
+                          _vm.$page.currentRouteName == "tasks.pending" ||
+                          _vm.$page.currentRouteName == "tasks.completed"
                       }
                     },
                     [
                       _vm._v(
-                        "\n                            Tasks\n                        "
+                        "\n                            Team Tasks\n                        "
                       )
                     ]
                   ),
@@ -26707,7 +26739,10 @@ var render = function() {
                   {
                     attrs: {
                       href: _vm.route("tasks.index"),
-                      active: _vm.$page.currentRouteName == "tasks.index"
+                      active:
+                        _vm.$page.currentRouteName == "tasks.index" ||
+                        _vm.$page.currentRouteName == "tasks.pending" ||
+                        _vm.$page.currentRouteName == "tasks.completed"
                     }
                   },
                   [_vm._v("\n                    Team Tasks\n                ")]

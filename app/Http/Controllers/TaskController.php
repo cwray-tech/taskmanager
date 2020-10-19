@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Task;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Validation\Rules\In;
 use Inertia\Inertia;
@@ -33,6 +34,8 @@ class TaskController extends Controller
      */
     public function create(Request $request)
     {
+        Gate::authorize('create', Task::class);
+
         return Inertia::render('Tasks/Create', [
             'users' => $request->user()
                 ->currentTeam
@@ -47,6 +50,8 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
+        Gate::authorize('create', Task::class);
+
         $validated = $request->validate([
             'name' => ['required', 'min:3'],
             'details' => ['nullable'],
@@ -66,6 +71,8 @@ class TaskController extends Controller
      */
     public function show(Request $request, Task $task)
     {
+        Gate::authorize('view', $task);
+
         return Inertia::render('Tasks/Show', [
             'task' => $task->toArray()
         ]);
@@ -78,6 +85,8 @@ class TaskController extends Controller
      */
     public function edit(Request $request, Task $task)
     {
+        Gate::authorize('update', $task);
+
         return Inertia::render('Tasks/Edit', [
             'task' => $task->toArray(),
             'users' => $request->user()->currentTeam->allUsers()->toArray()
@@ -91,6 +100,8 @@ class TaskController extends Controller
      */
     public function update(Request $request, Task $task)
     {
+        Gate::authorize('update', $task);
+
         $validated = $request->validate([
             'name' => ['required', 'min:3'],
             'details' => ['nullable'],
@@ -108,6 +119,8 @@ class TaskController extends Controller
      */
     public function destroy(Request $request, Task $task)
     {
+        Gate::authorize('delete', $task);
+
         $task->delete();
 
         return Redirect::route('tasks.index');

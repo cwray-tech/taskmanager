@@ -31,15 +31,12 @@ class Task extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function project()
+
+    public function team()
     {
-        return $this->belongsTo(Project::class);
+        return $this->belongsTo(Team::class);
     }
 
-    public function status()
-    {
-        return $this->belongsTo(Status::class);
-    }
     public function getPreviewAttribute(){
         return Str::limit(strip_tags($this->details),25,'...');
     }

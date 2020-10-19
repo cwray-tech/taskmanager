@@ -17,8 +17,8 @@
                             <jet-nav-link :href="route('dashboard')" :active="$page.currentRouteName == 'dashboard'">
                                 Dashboard
                             </jet-nav-link>
-                            <jet-nav-link :href="route('tasks.index')" :active="$page.currentRouteName == 'tasks.index'">
-                                Tasks
+                            <jet-nav-link :href="route('tasks.index')" :active="$page.currentRouteName == 'tasks.index' || $page.currentRouteName == 'tasks.pending' || $page.currentRouteName == 'tasks.completed'">
+                                Team Tasks
                             </jet-nav-link>
                             <jet-nav-link :href="route('tasks.create')" :active="$page.currentRouteName == 'tasks.create'">
                                 New Task
@@ -127,7 +127,7 @@
                     <jet-responsive-nav-link :href="route('dashboard')" :active="$page.currentRouteName == 'dashboard'">
                         Dashboard
                     </jet-responsive-nav-link>
-                    <jet-responsive-nav-link :href="route('tasks.index')" :active="$page.currentRouteName == 'tasks.index'">
+                    <jet-responsive-nav-link :href="route('tasks.index')" :active="$page.currentRouteName == 'tasks.index' || $page.currentRouteName == 'tasks.pending' || $page.currentRouteName == 'tasks.completed'">
                         Team Tasks
                     </jet-responsive-nav-link>
                     <jet-responsive-nav-link :href="route('tasks.create')" :active="$page.currentRouteName == 'tasks.create'">
