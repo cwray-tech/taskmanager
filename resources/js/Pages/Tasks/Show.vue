@@ -5,9 +5,9 @@
         </template>
 
         <div class="py-12">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                    <div class="bg-white shadow overflow-hidden sm:rounded-lg">
+            <div class="max-w-7xl mx-auto px-4 lg:px-8">
+                <div class="bg-white overflow-hidden shadow-xl rounded-lg">
+                    <div class="bg-white shadow overflow-hidden rounded-lg">
                         <div class="px-4 flex justify-between py-5 border-b border-gray-200 sm:px-6">
                             <div class="w-3/4">
                                 <h1 class="text-xl leading-6 font-medium text-gray-900">

@@ -8,8 +8,8 @@
         </template>
 
         <div class="py-12">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-6">
+            <div class="max-w-7xl mx-auto px-4 lg:px-8">
+                <div class="bg-white overflow-hidden shadow-xl rounded-lg p-6">
                     <form @submit.prevent="edit">
                         <jet-label for="task_name" value="Task Name" />
                         <jet-input id="task_name" type="text" class="mt-1 block w-full" v-model="form.name" ref="task_name" />

@@ -46,7 +46,7 @@
                         </tr>
                         </tbody>
                     </table>
-                    <div class="p-4" v-if="tasks.length == 0">You are all caught up! <CardLink :href="route('tasks.create')">Want to add a new task?</CardLink></div>
+                    <div class="p-4" v-if="tasks.length == 0">No tasks to show here. <CardLink :href="route('tasks.create')">Want to add a new task?</CardLink></div>
                 </div>
             </div>
         </div>

@@ -24664,10 +24664,11 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "flex items-center justify-between mb-4" },
+    { staticClass: "md:flex flex-wrap items-center justify-between mb-4" },
     [
       _c(
         "div",
+        { staticClass: "flex items-center space-x-2 flex-wrap" },
         [
           _c(
             "ButtonLink",
@@ -24708,6 +24709,7 @@ var render = function() {
       _c(
         "ButtonLink",
         {
+          staticClass: "mt-2 md:mt-0",
           attrs: {
             href: _vm.route("tasks.create"),
             active: _vm.$page.currentRouteName == "tasks.create"
@@ -24870,7 +24872,7 @@ var render = function() {
                     "div",
                     { staticClass: "p-4" },
                     [
-                      _vm._v("You are all caught up! "),
+                      _vm._v("No tasks to show here. "),
                       _c(
                         "CardLink",
                         { attrs: { href: _vm.route("tasks.create") } },
@@ -27746,10 +27748,10 @@ var render = function() {
     [
       _vm._v(" "),
       _c("div", { staticClass: "py-12" }, [
-        _c("div", { staticClass: "max-w-7xl mx-auto sm:px-6 lg:px-8" }, [
+        _c("div", { staticClass: "max-w-7xl mx-auto px-6 lg:px-8" }, [
           _c(
             "div",
-            { staticClass: "bg-white overflow-hidden shadow-xl sm:rounded-lg" },
+            { staticClass: "bg-white overflow-hidden shadow-xl rounded-lg" },
             [_c("welcome")],
             1
           )
@@ -29052,15 +29054,14 @@ var render = function() {
       _c("div", { staticClass: "py-12" }, [
         _c(
           "div",
-          { staticClass: "max-w-7xl mx-auto sm:px-6 lg:px-8" },
+          { staticClass: "max-w-7xl mx-auto px-4 lg:px-8" },
           [
             _c("TaskButtons"),
             _vm._v(" "),
             _c(
               "div",
               {
-                staticClass:
-                  "bg-white overflow-hidden shadow-xl sm:rounded-lg p-6"
+                staticClass: "bg-white overflow-hidden shadow-xl rounded-lg p-6"
               },
               [
                 _c(
@@ -29256,12 +29257,11 @@ var render = function() {
     [
       _vm._v(" "),
       _c("div", { staticClass: "py-12" }, [
-        _c("div", { staticClass: "max-w-7xl mx-auto sm:px-6 lg:px-8" }, [
+        _c("div", { staticClass: "max-w-7xl mx-auto px-4 lg:px-8" }, [
           _c(
             "div",
             {
-              staticClass:
-                "bg-white overflow-hidden shadow-xl sm:rounded-lg p-6"
+              staticClass: "bg-white overflow-hidden shadow-xl rounded-lg p-6"
             },
             [
               _c(
@@ -29473,15 +29473,13 @@ var render = function() {
       _c("div", { staticClass: "py-12" }, [
         _c(
           "div",
-          { staticClass: "max-w-7xl mx-auto sm:px-6 lg:px-8" },
+          { staticClass: "max-w-7xl mx-auto px-4 lg:px-8" },
           [
             _c("TaskButtons"),
             _vm._v(" "),
             _c(
               "div",
-              {
-                staticClass: "bg-white overflow-hidden shadow-xl sm:rounded-lg"
-              },
+              { staticClass: "bg-white overflow-hidden shadow-xl rounded-lg" },
               [_c("TaskList", { attrs: { tasks: _vm.tasks } })],
               1
             )
@@ -29534,16 +29532,14 @@ var render = function() {
     [
       _vm._v(" "),
       _c("div", { staticClass: "py-12" }, [
-        _c("div", { staticClass: "max-w-7xl mx-auto sm:px-6 lg:px-8" }, [
+        _c("div", { staticClass: "max-w-7xl mx-auto px-4 lg:px-8" }, [
           _c(
             "div",
-            { staticClass: "bg-white overflow-hidden shadow-xl sm:rounded-lg" },
+            { staticClass: "bg-white overflow-hidden shadow-xl rounded-lg" },
             [
               _c(
                 "div",
-                {
-                  staticClass: "bg-white shadow overflow-hidden sm:rounded-lg"
-                },
+                { staticClass: "bg-white shadow overflow-hidden rounded-lg" },
                 [
                   _c(
                     "div",
