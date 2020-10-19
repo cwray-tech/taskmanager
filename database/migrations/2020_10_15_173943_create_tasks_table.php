@@ -20,7 +20,6 @@ class CreateTasksTable extends Migration
             $table->string('name');
             $table->longText('details')->nullable();
             $table->date('completed_at')->nullable();
-            $table->softDeletes();
             $table->timestamps();
         });
     }

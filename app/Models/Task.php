@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 
 class Task extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory;
     protected $with = ['user'];
     protected $appends = ['preview'];
 
