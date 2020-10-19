@@ -14,6 +14,7 @@
 
         <form method="POST" action="{{ route('login') }}">
             @csrf
+            <p class="mb-4">Don't have an account yet? <a href="/register" class="underline">Register for one here.</a> </p>
 
             <div>
                 <x-jet-label for="email" value="{{ __('Email') }}" />
