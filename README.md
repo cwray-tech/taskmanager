@@ -1,6 +1,6 @@
 # Task Manager
 
-Task Manager is a simple app for managing tasks built on the Laravel 8 Framework.
+[Task Manager](https://taskmanager.chriswray.dev) is a simple app for managing tasks built on the Laravel 8 Framework.
 
 - Tailwind CSS for styling.
 - VueJs for frontend JS.
