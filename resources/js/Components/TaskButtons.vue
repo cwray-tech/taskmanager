@@ -1,5 +1,5 @@
 <template>
-    <div class="md:flex flex-wrap items-center justify-between mb-4">
+    <div class="md:flex flex-wrap items-center justify-between mb-6">
         <div class="flex items-center space-x-2 flex-wrap">
             <ButtonLink :href="route('tasks.index')" :active="$page.currentRouteName == 'tasks.index'">All Tasks</ButtonLink>
             <ButtonLink :href="route('tasks.pending')" :active="$page.currentRouteName == 'tasks.pending'">Pending Tasks</ButtonLink>

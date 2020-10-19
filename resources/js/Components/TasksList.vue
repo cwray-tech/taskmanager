@@ -58,8 +58,6 @@ import CompleteTask from "./CompleteTask";
 
 export default {
     components: {CompleteTask, CardLink},
-    props: {
-        tasks: Array
-    }
+    props: ['tasks']
 }
 </script>

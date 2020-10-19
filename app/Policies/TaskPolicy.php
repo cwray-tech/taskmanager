@@ -41,7 +41,7 @@ class TaskPolicy
      */
     public function create(User $user)
     {
-        return $user->tokenCan('task:create');
+        return $user->tokenCan('create');
     }
 
     /**
@@ -55,8 +55,8 @@ class TaskPolicy
     {
         $team = $task->team;
         return  $user->belongsToTeam($team) &&
-                $user->hasTeamPermission($team, 'task:update') &&
-                $user->tokenCan('task:update');
+                $user->hasTeamPermission($team, 'update') &&
+                $user->tokenCan('update');
     }
 
     /**
@@ -70,7 +70,7 @@ class TaskPolicy
     {
         $team = $task->team;
         return  $user->belongsToTeam($team) &&
-                $user->hasTeamPermission($team, 'task:delete') &&
-                $user->tokenCan('task:delete');
+                $user->hasTeamPermission($team, 'delete') &&
+                $user->tokenCan('delete');
     }
 }

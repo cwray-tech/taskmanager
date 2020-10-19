@@ -17,7 +17,8 @@ class PendingTasksController extends Controller
     {
         $tasks = $request->user()
             ->currentTeam->tasks
-            ->whereNull('completed_at')->toArray();
+            ->whereNull('completed_at')
+            ->toArray();
 
         return Inertia::render('Tasks/Index', [
             'tasks' => $tasks

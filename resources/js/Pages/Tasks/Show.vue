@@ -18,6 +18,7 @@
                                 </p>
                             </div>
 
+
                             <ButtonLink :href="route('tasks.edit', task.id)">
                                 Edit Task
                             </ButtonLink>

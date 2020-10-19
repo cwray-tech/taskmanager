@@ -212,7 +212,7 @@
         </header>
 
         <!-- Page Content -->
-        <main>
+        <main class="pb-20">
             <slot></slot>
         </main>
 

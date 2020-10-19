@@ -2240,9 +2240,7 @@ __webpack_require__.r(__webpack_exports__);
     CompleteTask: _CompleteTask__WEBPACK_IMPORTED_MODULE_1__["default"],
     CardLink: _CardLink__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
-  props: {
-    tasks: Array
-  }
+  props: ['tasks']
 });
 
 /***/ }),
@@ -4770,6 +4768,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_CardLink__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Components/CardLink */ "./resources/js/Components/CardLink.vue");
 /* harmony import */ var _Components_ButtonLink__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Components/ButtonLink */ "./resources/js/Components/ButtonLink.vue");
 /* harmony import */ var _Components_TaskButtons__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../Components/TaskButtons */ "./resources/js/Components/TaskButtons.vue");
+//
 //
 //
 //
@@ -24664,7 +24663,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "md:flex flex-wrap items-center justify-between mb-4" },
+    { staticClass: "md:flex flex-wrap items-center justify-between mb-6" },
     [
       _c(
         "div",
@@ -26998,7 +26997,7 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c("main", [_vm._t("default")], 2),
+      _c("main", { staticClass: "pb-20" }, [_vm._t("default")], 2),
       _vm._v(" "),
       _c("portal-target", { attrs: { name: "modal", multiple: "" } })
     ],
